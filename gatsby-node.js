@@ -5,6 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogIndex = path.resolve(`./src/templates/blog-index.js`)
   const result = await graphql(
     `
       {
@@ -47,6 +48,16 @@ exports.createPages = async ({ graphql, actions }) => {
         next,
       },
     })
+
+    // Create blog index per 5 pages.
+    index % 5 === 0 && createPage({
+      path: index === 0 ? `/` :`/${index / 5 + 1}`,
+      component: blogIndex,
+      context: {
+        index: index,
+      },
+    },)
+
   })
 }
 
