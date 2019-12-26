@@ -11,6 +11,10 @@ class BlogIndexTemplate extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    const currentPage = this.props.pageContext.index / 5 + 1
+    const lastPage = parseInt((this.props.pageContext.postCount - 1) /5 + 1)
+    const prevPage = currentPage - 1
+    const nextPage = currentPage + 1
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -42,6 +46,9 @@ class BlogIndexTemplate extends React.Component {
             </article>
           )
         })}
+        {currentPage === 1 || <Link to={prevPage === 1 ?`/` :`/` + prevPage}>{`<`}</Link>}
+        <span>Page {currentPage}</span>
+        {currentPage === lastPage || <Link to={`/` + nextPage}>{`>`}</Link>}
       </Layout>
     )
   }
