@@ -1,6 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 
+import Search from "./search"
 import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
@@ -61,6 +62,18 @@ class Layout extends React.Component {
         }}
       >
         <header>{header}</header>
+        <StaticQuery
+          query={graphql`
+            query SearchIndexQuery {
+              siteSearchIndex {
+                index
+              }
+            }
+          `}
+          render={data => (
+            <Search searchIndex={data.siteSearchIndex.index} />
+          )}
+        />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
