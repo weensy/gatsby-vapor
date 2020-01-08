@@ -21,6 +21,7 @@ export default class Search extends Component {
             <li key={page.id}>
               <Link to={page.slug}>{page.title}</Link>
               {": " + page.tags.join(`,`)}
+              {"/" + page.description}
             </li>
           ))}
         </ul>
