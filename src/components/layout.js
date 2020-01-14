@@ -1,5 +1,6 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import Search from "./search"
 import { rhythm, scale } from "../utils/typography"
@@ -74,6 +75,30 @@ class Layout extends React.Component {
             <Search searchIndex={data.siteSearchIndex.index} />
           )}
         />
+        <div className="toggler">
+          <ThemeToggler>
+            {({ theme, toggleTheme }) => (
+              <label className="tog">
+                <input
+                  type="checkbox"
+                  onChange={e =>
+                    toggleTheme(e.target.checked ? "dark" : "light")
+                  }
+                  checked={theme === "dark"}
+                />
+                {theme === "dark" ? (
+                  <div className="">
+                    L
+                  </div>
+                ) : (
+                  <div className="">
+                    D
+                  </div>
+                )}
+              </label>
+            )}
+          </ThemeToggler>
+        </div>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
