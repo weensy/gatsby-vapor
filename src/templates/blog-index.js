@@ -26,12 +26,9 @@ class BlogIndexTemplate extends React.Component {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <article key={node.fields.slug}>
+              <div className="post-card">
               <header>
-                <h3
-                  style={{
-                    marginBottom: rhythm(1 / 4),
-                  }}
-                >
+                <h3>
                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                     {title}
                   </Link>
@@ -45,6 +42,7 @@ class BlogIndexTemplate extends React.Component {
                   }}
                 />
               </section>
+              </div>
             </article>
           )
         })}
