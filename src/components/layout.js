@@ -13,13 +13,13 @@ class Layout extends React.Component {
 
     if (location.pathname === rootPath) {
       header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
+        // <h1
+        //   style={{
+        //     // ...scale(1.5),
+        //     // marginBottom: rhythm(1.5),
+        //     // marginTop: 0,
+        //   }}
+        // >
           <Link
             style={{
               boxShadow: `none`,
@@ -30,14 +30,14 @@ class Layout extends React.Component {
           >
             {title}
           </Link>
-        </h1>
+        // </h1>
       )
     } else {
       header = (
         <h3
           style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
+            // fontFamily: `Montserrat, sans-serif`,
+            // marginTop: 0,
           }}
         >
           <Link
@@ -62,43 +62,56 @@ class Layout extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
-        <StaticQuery
-          query={graphql`
-            query SearchIndexQuery {
-              siteSearchIndex {
-                index
-              }
-            }
-          `}
-          render={data => (
-            <Search searchIndex={data.siteSearchIndex.index} />
-          )}
-        />
-        <div className="toggler">
-          <ThemeToggler>
-            {({ theme, toggleTheme }) => (
-              <label className="tog">
-                <input
-                  type="checkbox"
-                  onChange={e =>
-                    toggleTheme(e.target.checked ? "dark" : "light")
-                  }
-                  checked={theme === "dark"}
-                />
-                {theme === "dark" ? (
-                  <div className="">
-                    L
-                  </div>
-                ) : (
-                  <div className="">
-                    D
-                  </div>
+        <ul className="test">
+          <li>
+            <header>{header}</header>
+          </li>
+          <li>
+            Tags
+          </li>
+          <li>
+            Search
+          </li>
+          <li>
+            <div className="toggler">
+              <ThemeToggler>
+                {({ theme, toggleTheme }) => (
+                  <label className="tog">
+                    <input
+                      type="checkbox"
+                      onChange={e =>
+                        toggleTheme(e.target.checked ? "dark" : "light")
+                      }
+                      checked={theme === "dark"}
+                      className="tttt"
+                    />
+                    {theme === "dark" ? (
+                      <div className="abc">
+                        Light
+                      </div>
+                    ) : (
+                      <div className="abc">
+                        Dark
+                      </div>
+                    )}
+                  </label>
                 )}
-              </label>
-            )}
-          </ThemeToggler>
-        </div>
+              </ThemeToggler>
+            </div>
+          </li>
+        </ul>
+        <StaticQuery
+              query={graphql`
+                query SearchIndexQuery {
+                  siteSearchIndex {
+                    index
+                  }
+                }
+              `}
+              render={data => (
+                <Search searchIndex={data.siteSearchIndex.index} />
+              )}
+            />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
