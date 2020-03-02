@@ -3,6 +3,9 @@
 body {
     font-family: var(--font-sans-serif);
 }
+body.dark {
+    background-color: gray;
+}
 
 h1 {
     font-family: var(--font-sans-serif);
@@ -24,4 +27,8 @@ h3 {
     list-style: none;
     display: flex;
     justify-content: space-between;
+}
+
+.tttt {
+    display: none;
 }
