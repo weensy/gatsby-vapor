@@ -4,17 +4,10 @@ body {
     font-family: var(--font-sans-serif);
 }
 body.dark {
+    font-family: var(--font-sans-serif);
     background-color: gray;
 }
 
-h1 {
-    font-family: var(--font-sans-serif);
-    font-weight: 1500;
-}
-
-h3 {
-    font-family: var(--font-sans-serif);
-}
 .post-card {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -26,9 +19,31 @@ h3 {
 .test {
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    align-content: flex-end;
+}
+
+.header-container {
+    display: flex;
+    align-items: flex-end;
 }
 
 .tttt {
     display: none;
+}
+
+.title {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+    font-family: var(--font-serif);
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.page {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 720px;
+    padding: auto;
 }
