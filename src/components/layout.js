@@ -3,7 +3,6 @@ import { StaticQuery, graphql, Link } from "gatsby"
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import Search from "./search"
-import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
   render() {
