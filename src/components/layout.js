@@ -9,15 +9,16 @@ class Layout extends React.Component {
     const { location, title, children } = this.props
     
     return (
-      <div className="page">
+      <div className="site-container">
         <div className="header-container">
           <Link
-            className="title"
+            className="header-title"
             to={`/`}
           >
             {title}
           </Link>
-          <ul className="test">
+          <div className="test">
+          <ul className="header-nav">
             <li>
               Tags
             </li>
@@ -35,7 +36,7 @@ class Layout extends React.Component {
                           toggleTheme(e.target.checked ? "dark" : "light")
                         }
                         checked={theme === "dark"}
-                        className="tttt"
+                        className="tog-checkbox"
                       />
                       {theme === "dark" ? (
                         <div className="abc">
@@ -52,6 +53,10 @@ class Layout extends React.Component {
               </div>
             </li>
           </ul>
+          <ul className="header-social">
+            <li>GitHub</li>
+          </ul>
+          </div>
         </div>
         <StaticQuery
               query={graphql`
