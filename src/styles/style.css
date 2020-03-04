@@ -10,12 +10,13 @@ body.dark {
 .site-container {
     margin: auto;
     padding: auto;
-    max-width: 720px;
+    max-width: 45rem;
 }
 
 .header-container {
     display: flex;
     align-items: baseline;
+    margin: 0px 0.5em;
 }
 
 .header-title {
@@ -28,7 +29,7 @@ body.dark {
     font-weight: 700;
 }
 
-.test {
+.nav-container {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -38,24 +39,30 @@ body.dark {
     list-style: none;
     display: flex;
     justify-content: flex-start;
+    padding: 0px;
 }
 
 .header-social {
     list-style: none;
     display: flex;
     justify-content: flex-end;
+    padding: 0px;
 }
+
 .header-nav li {
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 1.5em;
+}
+
+.header-social li {
+    margin-left: 1.5em;
 }
 
 .post-card {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 24px;
-    padding: 23px 24px;
+    border: 0.0625em solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.3em;
+    box-shadow: 0 0.0625em 0.25em rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5em;
+    padding: 1em 1.5em;
 }
 
 .tog-checkbox {
