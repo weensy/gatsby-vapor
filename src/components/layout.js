@@ -1,12 +1,12 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import Search from "./search"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, children} = this.props
     const toggler = (
       <div className="toggler">
         <ThemeToggler>{({ theme, toggleTheme }) => (
@@ -20,11 +20,11 @@ class Layout extends React.Component {
               className="tog-checkbox"
             />
             {theme === "dark" ? (
-              <div className="abc">
+              <div className="tog-text">
                 Light
               </div>
             ) : (
-              <div className="abc">
+              <div className="tog-text">
                 Dark
               </div>
             )}
@@ -58,19 +58,13 @@ class Layout extends React.Component {
           </Link>
           <div className="nav-container">
             <ul className="header-nav">
-              <li>
-                Tags
-              </li>
-              <li>
-                Search
-              </li>
-              <li>
-                {toggler}
-              </li>
+              <li><Link to={`/tags`}>Tags</Link></li>
+              <li><Link to={`/search`}>Search</Link></li>
+              <li>{toggler}</li>
             </ul>
-            <ul className="header-social">
-              <li>GitHub</li>
-              <li>LinkedIn</li>
+            <ul className="header-link">
+              <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
             </ul>
           </div>
         </div>
@@ -78,7 +72,7 @@ class Layout extends React.Component {
         <footer>
           © {new Date().getFullYear()} {title}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a className="gatsby" href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     )

@@ -28,7 +28,7 @@ class BlogIndexTemplate extends React.Component {
               <div className="post-card">
               <header>
                 <h3>
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  <Link to={node.fields.slug}>
                     {title}
                   </Link>
                 </h3>
