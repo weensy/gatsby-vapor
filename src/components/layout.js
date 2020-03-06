@@ -1,12 +1,12 @@
 import React from "react"
 import { StaticQuery, graphql, Link } from "gatsby"
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import Search from "./search"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, children} = this.props
     const toggler = (
       <div className="toggler">
         <ThemeToggler>{({ theme, toggleTheme }) => (
@@ -78,7 +78,7 @@ class Layout extends React.Component {
         <footer>
           © {new Date().getFullYear()} {title}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a className="gatsby" href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     )

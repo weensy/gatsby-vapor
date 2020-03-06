@@ -12,3 +12,15 @@
   --font-bold: 700;
   --font-heavy: 900;
 }
+
+body.light {
+  --color-bg: rgba(255, 255, 255, 0.9);
+  --color-font: rgba(0, 0, 0, 0.8);
+  --color-postcard: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --color-bg: rgba(0, 0, 0, 0.9);
+  --color-font: rgba(255, 255, 255, 0.8);
+  --color-postcard: rgba(255, 255, 255, 0.1);
+}
