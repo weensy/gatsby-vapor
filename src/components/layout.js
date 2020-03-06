@@ -58,19 +58,13 @@ class Layout extends React.Component {
           </Link>
           <div className="nav-container">
             <ul className="header-nav">
-              <li>
-                Tags
-              </li>
-              <li>
-                Search
-              </li>
-              <li>
-                {toggler}
-              </li>
+              <li><Link to={`/tags`}>Tags</Link></li>
+              <li><Link to={`/search`}>Search</Link></li>
+              <li>{toggler}</li>
             </ul>
             <ul className="header-link">
               <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-              <li>LinkedIn</li>
+              <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
             </ul>
           </div>
         </div>
