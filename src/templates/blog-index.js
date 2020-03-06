@@ -26,21 +26,21 @@ class BlogIndexTemplate extends React.Component {
           return (
             <article key={node.fields.slug}>
               <div className="post-card">
-              <header>
-                <h3>
-                  <Link to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
+                <header>
+                  <h1>
+                    <Link to={node.fields.slug}>
+                      {title}
+                    </Link>
+                  </h1>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                </section>
               </div>
             </article>
           )

@@ -5,6 +5,7 @@ body {
     background-color: var(--color-bg);
     color: var(--color-font);
     transition: color, background-color 0.5s ease 0s;
+    letter-spacing: -0.0125em;
 }
 
 .site-container {
@@ -37,6 +38,7 @@ body {
     font-size: 2.75em;
     font-weight: 900;
     white-space: nowrap;
+    letter-spacing: 0em;
 }
 
 .nav-container {
@@ -85,8 +87,11 @@ body {
     padding: 1em 1.5em;
 }
 
-.post-card h3 {
+.post-card h1 {
     font-size: 1.75em;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    letter-spacing: -0.025em;
 }
 .post-card a {
     box-shadow: none;
