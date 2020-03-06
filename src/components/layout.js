@@ -20,11 +20,11 @@ class Layout extends React.Component {
               className="tog-checkbox"
             />
             {theme === "dark" ? (
-              <div className="abc">
+              <div className="tog-text">
                 Light
               </div>
             ) : (
-              <div className="abc">
+              <div className="tog-text">
                 Dark
               </div>
             )}
@@ -68,8 +68,8 @@ class Layout extends React.Component {
                 {toggler}
               </li>
             </ul>
-            <ul className="header-social">
-              <li>GitHub</li>
+            <ul className="header-link">
+              <li><a href="https://github.com/" target="_blank">GitHub</a></li>
               <li>LinkedIn</li>
             </ul>
           </div>
