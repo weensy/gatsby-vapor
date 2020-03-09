@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Tags from "../components/tags"
 
 import "../styles/style.css"
 
@@ -24,6 +25,7 @@ class BlogIndexTemplate extends React.Component {
           return (
             <article key={node.fields.slug}>
               <div className="post-card">
+              <Tags tags={node.frontmatter.tags}/>
                 <header>
                   <h1>
                     <Link to={node.fields.slug}>
@@ -38,6 +40,7 @@ class BlogIndexTemplate extends React.Component {
                       __html: node.frontmatter.description || node.excerpt,
                     }}
                   />
+                  {/* {node.frontmatter.description || node.excerpt} */}
                 </section>
               </div>
             </article>
@@ -71,6 +74,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }
