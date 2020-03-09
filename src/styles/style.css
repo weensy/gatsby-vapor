@@ -8,13 +8,14 @@ body {
     letter-spacing: -0.0125em;
 }
 
+/* Layout */
 .site-container {
     margin: auto;
     padding: auto;
     max-width: 45rem;
 }
 
-/* Header */
+/* Layout-Header */
 .header-container {
     display: flex;
     align-items: baseline;
@@ -77,20 +78,31 @@ body {
     cursor: pointer;
 }
 
+/* Layout-Footer */
+.footer-copyright {
+    text-align: center;
+    font-size: 0.875em;
+}
 
+.footer-gatsby {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+}
 
+/* Post */
 .post-card {
     border: 0.0625em solid var(--color-postcard);
     border-radius: 0.3em;
     box-shadow: 0 0.0625em 0.25em var(--color-postcard);
     margin-bottom: 1.5em;
-    padding: 1em 1.5em;
+    padding: 2em 1.5em;
 }
 
 .post-card h1 {
-    font-size: 1.75em;
-    margin-top: 0.5em;
-    margin-bottom: 0.2em;
+    font-size: 2em;
+    margin-top: 0em;
+    margin-bottom: 0em;
     letter-spacing: -0.025em;
 }
 .post-card a {
@@ -98,9 +110,17 @@ body {
     text-decoration: none;
     color: inherit;
 }
-
-.gatsby {
-    box-shadow: none;
-    text-decoration: none;
-    color: inherit;
+.post-card p {
+    margin-bottom: 0em;
+    margin-top: 0em;
 }
+.post-card small {
+    font-size: 0.8125em;
+}
+/* .post-card-tag-container {
+    
+} */
+.post-card-tag {
+    margin-right: 0.375em;
+}
+
