@@ -1,9 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Tags from "../components/tags"
 
 import "../styles/style.css"
 
@@ -20,27 +20,28 @@ class BlogIndexTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        {/* <Bio /> */}
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <article key={node.fields.slug}>
               <div className="post-card">
-              <header>
-                <h3>
-                  <Link to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </h3>
-                <small>{node.frontmatter.date}</small>
-              </header>
-              <section>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                  }}
-                />
-              </section>
+              <Tags tags={node.frontmatter.tags}/>
+                <header>
+                  <h1>
+                    <Link to={node.fields.slug}>
+                      {title}
+                    </Link>
+                  </h1>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
+                  {/* {node.frontmatter.description || node.excerpt} */}
+                </section>
               </div>
             </article>
           )
@@ -73,6 +74,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

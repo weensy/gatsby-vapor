@@ -63,16 +63,16 @@ class Layout extends React.Component {
               <li>{toggler}</li>
             </ul>
             <ul className="header-link">
-              <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-              <li><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></li>
+              <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
             </ul>
           </div>
         </div>
         <main>{children}</main>
-        <footer>
+        <footer className="footer-copyright">
           © {new Date().getFullYear()} {title}, Built with
           {` `}
-          <a className="gatsby" href="https://www.gatsbyjs.org">Gatsby</a>
+          <a className="footer-gatsby" href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     )
