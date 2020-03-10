@@ -52,7 +52,7 @@ class BlogIndexTemplate extends React.Component {
           )
         })}
         {currentPage === 1 || <Link to={prevPage === 1 ?`/` :`/` + prevPage}>{`<`}</Link>}
-        <span>Page {currentPage}</span>
+        {lastPage === 1 || <span>Page {currentPage}</span>}
         {currentPage === lastPage || <Link to={`/` + nextPage}>{`>`}</Link>}
       </Layout>
     )
