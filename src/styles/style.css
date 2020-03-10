@@ -90,7 +90,7 @@ body {
     color: inherit;
 }
 
-/* Post */
+/* Postcard*/
 .post-card {
     border: 0.0625em solid var(--color-postcard);
     border-radius: 0.3em;
@@ -112,10 +112,14 @@ body {
 }
 .post-card p {
     margin-bottom: 0em;
-    margin-top: 0em;
+    margin-top: 0.75em;
 }
 .post-card small {
     font-size: 0.8125em;
+}
+.post-card img {
+    margin-top: 0.75em;
+    width: 100%;
 }
 /* .post-card-tag-container {
     
