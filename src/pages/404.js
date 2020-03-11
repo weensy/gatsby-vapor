@@ -4,6 +4,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "../styles/style.css"
+
 class NotFoundPage extends React.Component {
   render() {
     const { data } = this.props
