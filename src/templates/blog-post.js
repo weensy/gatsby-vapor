@@ -19,36 +19,18 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <article>
-          <header>
-            <h1
-              style={{
-                // marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
+          <hr/>
+          <header className="post-header">
+            <h1>
               {post.frontmatter.title}
             </h1>
-            <p
-              style={{
-                // ...scale(-1 / 5),
-                display: `block`,
-                // marginBottom: rhythm(1),
-              }}
-            >
+            <p>
               {post.frontmatter.date}
             </p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              // marginBottom: rhythm(1),
-            }}
-          />
-          <footer>
-
-          </footer>
         </article>
-
+        <hr/>
         <nav>
           <ul
             style={{
