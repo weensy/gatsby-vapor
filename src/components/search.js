@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import { Index } from "elasticlunr"
+import Tags from "./tags"
 
 // Search component
 export default class Search extends Component {
@@ -14,17 +15,28 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" value={this.state.query} onChange={this.search} />
-        <ul>
+      <div className="search-container">
+        <input className="search-box" placeholder="Search" type="text" value={this.state.query} onChange={this.search} />
           {this.state.results.map(page => (
-            <li key={page.id}>
-              <Link to={page.slug}>{page.title}</Link>
-              {": " + page.tags.join(`,`)}
-              {"/" + page.description}
-            </li>
+            <div className="post-card">
+              <Tags tags={page.tags}/>
+              <header>
+                  <h1>
+                    <Link to={page.slug}>
+                      {page.title}
+                    </Link>
+                  </h1>
+                  <small>{page.date}</small>
+                </header>
+                <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: page.description,
+                    }}
+                  />
+                </section>
+            </div>
           ))}
-        </ul>
       </div>
     )
   }

@@ -4,6 +4,7 @@ body {
     font-family: var(--font-sans-serif);
     background-color: var(--color-bg);
     color: var(--color-font);
+    caret-color: var(--color-font);
     transition: color, background-color 0.5s ease 0s;
     letter-spacing: -0.0125em;
 }
@@ -140,7 +141,26 @@ body {
     
 }
 .post-header p {
-    /* font-size: 1.125em; */
     font-size: 0.8125em;
     margin-top: 0.8125em;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.search-box {
+    margin: 2em auto;
+    width: 35%;
+    border-radius: 0.625em;
+    border: 0.0625em solid var(--color-font);
+    box-shadow: 0 0.0625em 0.25em var(--color-postcard);
+    padding: 0.8125em;
+    font-family: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+.search-box:focus {
+    outline: none;
 }

@@ -81,6 +81,7 @@ module.exports = {
         resolvers: {
           MarkdownRemark: {
             title: node => node.frontmatter.title,
+            date: node => node.frontmatter.date,
             tags: node => node.frontmatter.tags,
             description: node => node.frontmatter.description,
             slug: node => node.fields.slug,

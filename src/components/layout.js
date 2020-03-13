@@ -1,8 +1,6 @@
 import React from "react"
-import { StaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
-
-import Search from "./search"
 
 class Layout extends React.Component {
   render() {
@@ -31,20 +29,6 @@ class Layout extends React.Component {
           </label>
         )}</ThemeToggler>
       </div>
-    )
-    const searchBox = (
-      <StaticQuery
-        query={graphql`
-          query SearchIndexQuery {
-            siteSearchIndex {
-              index
-            }
-          }
-        `}
-        render={data => (
-          <Search searchIndex={data.siteSearchIndex.index} />
-        )}
-      />
     )
 
     return (
