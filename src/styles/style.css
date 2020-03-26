@@ -122,10 +122,9 @@ body {
     margin-top: 0.75em;
     width: 100%;
 }
-/* .post-card-tag-container {
     
-} */
-.post-card-tag {
+
+.tag-item {
     margin-right: 0.375em;
 }
 
