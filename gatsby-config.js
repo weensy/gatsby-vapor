@@ -73,7 +73,7 @@ module.exports = {
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
-        fields: [`title`, `tags`, `description`, `body`],
+        fields: [`title`, `description`, `body`],
         resolvers: {
           MarkdownRemark: {
             title: node => node.frontmatter.title,
