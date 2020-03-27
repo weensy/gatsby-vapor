@@ -1,3 +1,5 @@
+const remark = require("remark");
+
 module.exports = {
   siteMetadata: {
     title: `Vapor`,
@@ -68,23 +70,40 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/utils/typography`,
-    //   },
-    // },
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
-        fields: [`title`, `tags`, `description`],
+        fields: [`title`, `description`, `body`],
         resolvers: {
           MarkdownRemark: {
             title: node => node.frontmatter.title,
-            date: node => node.frontmatter.date,
             tags: node => node.frontmatter.tags,
             description: node => node.frontmatter.description,
             slug: node => node.fields.slug,
+            body: node => String(remark().processSync(node.rawMarkdownBody)),
+            excerpt: node => {
+              const text = remark().processSync(node.rawMarkdownBody);
+              const excerptLength = 139; // Hard coded excerpt length
+              return node.rawMarkdownBody && String(text).substring(0, excerptLength) + "...";
+            },
+            date: node => {
+              const months= [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+              ];
+              const date = new Date(node.frontmatter.date);
+              return months[date.getUTCMonth(0)] + " " + date.getUTCDate(0) + ", " + date.getUTCFullYear(0);
+            },
           },
         },
       },

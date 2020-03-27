@@ -16,29 +16,31 @@ export default class Search extends Component {
   render() {
     return (
       <div className="search-container">
-        <input className="search-box" placeholder="Search" type="text" value={this.state.query} onChange={this.search} />
-          {this.state.results.map(page => (
-            <div className="post-card">
-              <Tags tags={page.tags}/>
-              <header>
-                  <h1>
-                    <Link to={page.slug}>
-                      {page.title}
-                    </Link>
-                  </h1>
-                  <small>{page.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: page.description,
-                    }}
-                  />
-                </section>
-            </div>
-          ))}
-      </div>
-    )
+        <div className="search-box-container">
+          <input className="search-box" placeholder="Search" type="text" value={this.state.query} onChange={this.search} />
+        </div>
+        {this.state.results.map(page => (
+          <div className="post-card">
+            <Tags tags={page.tags}/>
+            <header>
+                <h1>
+                  <Link to={page.slug}>
+                    {page.title}
+                  </Link>
+                </h1>
+                <small>{page.date}</small>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: page.description || page.excerpt,
+                  }}
+                />
+              </section>
+          </div>
+        ))}
+    </div>
+  )
   }
   getOrCreateIndex = () =>
     this.index
