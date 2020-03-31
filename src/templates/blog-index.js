@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Tags from "../components/tags"
+import PostCard from "../components/postCard"
 
 import "../styles/style.css"
 
@@ -16,39 +16,19 @@ class BlogIndexTemplate extends React.Component {
     const lastPage = parseInt((this.props.pageContext.postCount - 1) /5 + 1)
     const prevPage = currentPage - 1
     const nextPage = currentPage + 1
-
+    const siteDescription = currentPage === 1 && data.site.siteMetadata.description
+        
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Posts" />
+        {siteDescription}
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
           return (
-            <article key={node.fields.slug}>
-              <div className="post-card">
-              <Tags tags={node.frontmatter.tags}/>
-                <header>
-                  <h1>
-                    <Link to={node.fields.slug}>
-                      {title}
-                    </Link>
-                  </h1>
-                  <small>{node.frontmatter.date}</small>
-                </header>
-                {node.frontmatter.thumbnail &&
-                  <img
-                    alt={node.frontmatter.thumbnail.childImageSharp.fluid.originalName}
-                    src={node.frontmatter.thumbnail.childImageSharp.fluid.src}
-                  />
-                }
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </section>
-              </div>
-            </article>
+            <PostCard
+              key={node.fields.slug}
+              node={node}
+              postClass={`post`}
+            />
           )
         })}
         {currentPage === 1 || <Link to={prevPage === 1 ?`/` :`/` + prevPage}>{`<`}</Link>}
@@ -66,6 +46,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
     allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, limit: 5, skip: $index) {
