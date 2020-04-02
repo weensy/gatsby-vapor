@@ -12,14 +12,15 @@ class BlogIndexTemplate extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    const currentPage = this.props.pageContext.index / 5 + 1
-    const lastPage = parseInt((this.props.pageContext.postCount - 1) /5 + 1)
+    const postPerPage = 5
+    const currentPage = data.pageContext.index / postPerPage + 1
+    const lastPage = parseInt((data.pageContext.postCount - 1) /postPerPage + 1)
     const prevPage = currentPage - 1
     const nextPage = currentPage + 1
     const siteDescription = currentPage === 1 && data.site.siteMetadata.description
         
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={data.location} title={siteTitle}>
         <SEO title="Posts" />
         {siteDescription}
         {posts.map(({ node }) => {
