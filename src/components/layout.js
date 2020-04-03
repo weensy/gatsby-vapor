@@ -1,8 +1,8 @@
-import React from "react"
+import React, { Component } from "react";
 import { Link } from "gatsby"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
-class Layout extends React.Component {
+class Layout extends Component {
   render() {
     const { location, title, children} = this.props
     const toggler = (

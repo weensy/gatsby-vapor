@@ -96,7 +96,7 @@ body {
     border: 0.0625em solid var(--color-postcard);
     border-radius: 0.3em;
     box-shadow: 0 0.0625em 0.25em var(--color-postcard);
-    margin-bottom: 1.5em;
+    margin: 1.5em auto;
     padding: 2em 1.5em;
 }
 

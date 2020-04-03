@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `Vapor`,
     author: `Vaporwavy`,
-    description: `A minimal blog`,
+    description: `A blog for minimalist`,
     siteUrl: `https://gatsby-vapor.vaporwavy.io/`,
     social: {
       twitter: ``,
