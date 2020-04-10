@@ -13,16 +13,14 @@ class BlogIndexTemplate extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
     const postPerPage = 5
-    const currentPage = data.pageContext.index / postPerPage + 1
-    const lastPage = parseInt((data.pageContext.postCount - 1) /postPerPage + 1)
+    const currentPage = this.props.pageContext.index / postPerPage + 1
+    const lastPage = parseInt((this.props.pageContext.postCount - 1) /postPerPage + 1)
     const prevPage = currentPage - 1
     const nextPage = currentPage + 1
-    const siteDescription = currentPage === 1 && data.site.siteMetadata.description
         
     return (
       <Layout location={data.location} title={siteTitle}>
         <SEO title="Posts" />
-        {siteDescription}
         {posts.map(({ node }) => {
           return (
             <PostCard
@@ -47,7 +45,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        description
       }
     }
     allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, limit: 5, skip: $index) {
