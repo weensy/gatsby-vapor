@@ -19,11 +19,11 @@ const TagIndex = ({ data }) => {
         {tags.map( tag => {
           return(
               <Link
+              className="tag-archive-link"
               key={tag}
-              style={{ textDecoration: "none" }}
               to={`/tags/${_.kebabCase(tag)}`}
               >
-              <div className="tag-archive-item">#{tag}</div>
+              <div className="tag-archive-item">{tag}</div>
               </Link>
             )
           })}

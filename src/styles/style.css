@@ -164,3 +164,26 @@ body {
 .search-box:focus {
     outline: none;
 }
+
+.tag-archive-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+    
+}
+
+.tag-archive-item {
+    border: 0.0625em solid var(--color-postcard);
+    border-radius: 0.3em;
+    box-shadow: 0 0.0625em 0.25em var(--color-postcard);
+    margin: 0.5em;
+    padding: 0.2em 0.6em;
+    
+}
+.tag-archive-link {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+    
+}
