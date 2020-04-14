@@ -30,9 +30,16 @@ class BlogIndexTemplate extends React.Component {
             />
           )
         })}
-        {currentPage === 1 || <Link to={prevPage === 1 ?`/` :`/` + prevPage}>{`<`}</Link>}
-        {lastPage === 1 || <span>Page {currentPage}</span>}
-        {currentPage === lastPage || <Link to={`/` + nextPage}>{`>`}</Link>}
+        {lastPage === 1 || 
+        <div className="pagenator">
+          {currentPage === 1 && 
+          <div className="pagenator-unlinked">{`<`}</div> || 
+          <Link className="pagenator-link" to={prevPage === 1 ?`/` :`/` + prevPage}>{`<`}</Link>}
+          <div>Page {currentPage}</div>
+          {currentPage === lastPage && 
+          <div className="pagenator-unlinked">{`>`}</div> || 
+          <Link className="pagenator-link" to={`/` + nextPage}>{`>`}</Link>}
+        </div>}
       </Layout>
     )
   }

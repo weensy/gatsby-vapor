@@ -187,3 +187,25 @@ body {
     color: inherit;
     
 }
+
+.pagenator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+    font-size: 0.875em;
+}
+.pagenator-link {
+    box-shadow: none;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.125rem;
+}
+.pagenator-unlinked {
+    color: transparent;
+    font-size: 1.125rem;
+}
+.pagenator div::selection,
+.pagenator a::selection {
+    background: transparent;
+}
