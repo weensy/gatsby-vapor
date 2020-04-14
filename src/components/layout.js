@@ -4,7 +4,7 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 class Layout extends Component {
   render() {
-    const { location, title, children} = this.props
+    const { title, children} = this.props
     const toggler = (
       <div className="toggler">
         <ThemeToggler>{({ theme, toggleTheme }) => (

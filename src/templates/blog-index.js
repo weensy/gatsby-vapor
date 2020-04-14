@@ -19,7 +19,7 @@ class BlogIndexTemplate extends React.Component {
     const nextPage = currentPage + 1
         
     return (
-      <Layout location={data.location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO title="Posts" />
         {posts.map(({ node }) => {
           return (

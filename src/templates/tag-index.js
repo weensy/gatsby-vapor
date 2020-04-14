@@ -13,7 +13,7 @@ class TagIndexTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO
           // title={`#${tag}`}
           title={`#${tag.charAt(0).toUpperCase() + tag.slice(1)}`}

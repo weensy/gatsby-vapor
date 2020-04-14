@@ -7,12 +7,12 @@ import Search from "../components/search"
 
 import "../styles/style.css"
 
-const SearchPage = ({ data, location }) => {
+const SearchPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const searchIndex = data.siteSearchIndex.index
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="Search" />
       <Search searchIndex={searchIndex}/>
     </Layout>
