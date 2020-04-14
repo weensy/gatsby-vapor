@@ -191,21 +191,30 @@ body {
 .pagenator {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 1em;
     font-size: 0.875em;
 }
-.pagenator-link {
-    box-shadow: none;
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.125rem;
+.pagenator-link svg {
+    fill: var(--color-font);
 }
-.pagenator-unlinked {
-    color: transparent;
-    font-size: 1.125rem;
+.pagenator-unlinked svg {
+    fill: transparent;
 }
 .pagenator div::selection,
 .pagenator a::selection {
     background: transparent;
+}
+
+.pagenator svg {
+    width: 0.75rem;
+}
+
+.post-card-readmore {
+    display: flex;
+    margin-top: 0.375rem;
+    font-size: 0.875em;
+}
+.post-card-readmore svg {
+    width: 0.625rem;
+    margin-left: 0.1875rem;
 }
