@@ -13,16 +13,14 @@ class BlogIndexTemplate extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
     const postPerPage = 5
-    const currentPage = data.pageContext.index / postPerPage + 1
-    const lastPage = parseInt((data.pageContext.postCount - 1) /postPerPage + 1)
+    const currentPage = this.props.pageContext.index / postPerPage + 1
+    const lastPage = parseInt((this.props.pageContext.postCount - 1) /postPerPage + 1)
     const prevPage = currentPage - 1
     const nextPage = currentPage + 1
-    const siteDescription = currentPage === 1 && data.site.siteMetadata.description
         
     return (
-      <Layout location={data.location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO title="Posts" />
-        {siteDescription}
         {posts.map(({ node }) => {
           return (
             <PostCard
@@ -32,9 +30,32 @@ class BlogIndexTemplate extends React.Component {
             />
           )
         })}
-        {currentPage === 1 || <Link to={prevPage === 1 ?`/` :`/` + prevPage}>{`<`}</Link>}
-        {lastPage === 1 || <span>Page {currentPage}</span>}
-        {currentPage === lastPage || <Link to={`/` + nextPage}>{`>`}</Link>}
+        {lastPage === 1 || 
+        <div className="pagenator">
+          {currentPage === 1
+            ? <div className="pagenator-unlinked">
+                <svg transform="scale(-1, 1)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                  <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
+                </svg> 
+              </div>
+            : <Link className="pagenator-link" to={prevPage === 1 ?`/` :`/` + prevPage}>
+                <svg transform="scale(-1, 1)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                  <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
+                </svg> 
+              </Link>}
+          <div>Page {currentPage}</div>
+          {currentPage === lastPage
+            ? <div className="pagenator-unlinked">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                  <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
+                </svg>
+              </div>
+            : <Link className="pagenator-link" to={`/` + nextPage}>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                  <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
+                </svg>
+              </Link>}
+        </div>}
       </Layout>
     )
   }
@@ -47,7 +68,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        description
       }
     }
     allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}, limit: 5, skip: $index) {
