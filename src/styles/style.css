@@ -233,7 +233,7 @@ body {
     justify-content: space-between;
     list-style: none;
     padding: 0;
-    color: var(--color-apple-blue);
+    font-size: 1.125em;
 }
 .post-nav ::selection {
     background: transparent;
@@ -241,18 +241,17 @@ body {
 .post-nav a {
     text-decoration: none;
     color: inherit;
-}
-.post-nav a:hover{
-    text-decoration: underline;
+    display: flex;
+    align-items: baseline;
 }
 .post-nav svg {
-    width: 0.75rem;
-    height: 0.75rem;
-    fill: var(--color-apple-blue);
+    width: 0.8125rem;
+    height: 0.8125rem;
+    fill: var(--color-font);
 }
 .post-nav-prev {
-    margin-left: 0.125em;
+    margin-left: 0.125rem;
 }
 .post-nav-next {
-    margin-right: 0.125em;
+    margin-right: 0.125rem;
 }
