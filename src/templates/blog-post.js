@@ -28,10 +28,10 @@ class BlogPostTemplate extends React.Component {
             <p>
               {post.frontmatter.date}
             </p>
-            <Img
+            {post.frontmatter.thumbnail && <Img
               fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
               alt={post.frontmatter.title}
-            />
+            />}
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
