@@ -6,6 +6,8 @@ import { graphql, StaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "../styles/style.css"
+
 const TagIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const tags = data.allMarkdownRemark.distinct
