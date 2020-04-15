@@ -161,9 +161,13 @@ body {
     font-family: inherit;
     color: inherit;
     background-color: transparent;
+    
 }
 .search-box:focus {
     outline: none;
+}
+.search-box::placeholder {
+    color: var(--color-apple-gray-1);
 }
 
 .tag-archive-container {
