@@ -27,7 +27,6 @@ body {
 }
 
 .header-container a {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
 }
@@ -89,7 +88,6 @@ body {
 }
 
 .footer-gatsby {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
 }
@@ -112,7 +110,6 @@ body {
     letter-spacing: -0.025em;
 }
 .post-card a {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
 }
@@ -186,10 +183,8 @@ body {
     
 }
 .tag-archive-link {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
-    
 }
 
 .pagenator {
@@ -230,4 +225,34 @@ body {
     height: 0.5rem;
     margin-left: 0.125rem;
     fill: var(--color-apple-blue);
+}
+
+.post-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    color: var(--color-apple-blue);
+}
+.post-nav ::selection {
+    background: transparent;
+}
+.post-nav a {
+    text-decoration: none;
+    color: inherit;
+}
+.post-nav a:hover{
+    text-decoration: underline;
+}
+.post-nav svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    fill: var(--color-apple-blue);
+}
+.post-nav-prev {
+    margin-left: 0.125em;
+}
+.post-nav-next {
+    margin-right: 0.125em;
 }
