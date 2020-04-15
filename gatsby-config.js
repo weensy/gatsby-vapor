@@ -5,7 +5,7 @@ module.exports = {
     title: `Vapor`,
     author: `Vaporwavy`,
     description: `A blog for minimalist`,
-    siteUrl: `https://gatsby-vapor.vaporwavy.io/`,
+    siteUrl: `https://vapor.aesthetic.codes/`,
     social: {
       twitter: ``,
     },
