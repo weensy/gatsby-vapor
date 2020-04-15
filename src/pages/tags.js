@@ -17,6 +17,7 @@ const TagIndex = ({ data }) => {
       <SEO
         title="Tags"
       />
+      <hr/>
       <div className="tag-archive-container">
         {tags.map( tag => {
           return(
@@ -30,6 +31,7 @@ const TagIndex = ({ data }) => {
             )
           })}
         </div>
+        <hr style={{marginBottom:`1em`}}/>
     </Layout>
   )
 }

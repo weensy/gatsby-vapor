@@ -170,8 +170,6 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 1em;
-    
 }
 
 .tag-archive-item {
