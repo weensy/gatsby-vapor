@@ -6,7 +6,7 @@ class PostCard extends Component {
   render() {
     const{props}=this.props;
     return (
-      <article key={props.node.fields.slug}>
+      <div key={props.node.fields.slug}>
         <div className="post-card">
           <Tags tags={props.node.frontmatter.tags}/>
           <header>
@@ -39,7 +39,7 @@ class PostCard extends Component {
             </Link>
           </div>
         </div>
-      </article>
+      </div>
     );
   }
 }
