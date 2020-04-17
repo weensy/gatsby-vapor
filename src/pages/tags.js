@@ -6,6 +6,8 @@ import { graphql, StaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "../styles/style.css"
+
 const TagIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const tags = data.allMarkdownRemark.distinct
@@ -15,6 +17,7 @@ const TagIndex = ({ data }) => {
       <SEO
         title="Tags"
       />
+      <hr/>
       <div className="tag-archive-container">
         {tags.map( tag => {
           return(
@@ -28,6 +31,7 @@ const TagIndex = ({ data }) => {
             )
           })}
         </div>
+        <hr style={{marginBottom:`1em`}}/>
     </Layout>
   )
 }

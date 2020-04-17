@@ -1,8 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Tags from "../components/tags"
 
 import "../styles/style.css"
 
@@ -18,8 +20,8 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        <hr/>
         <article>
-          <hr/>
           <header className="post-header">
             <h1>
               {post.frontmatter.title}
@@ -27,31 +29,34 @@ class BlogPostTemplate extends React.Component {
             <p>
               {post.frontmatter.date}
             </p>
+            {post.frontmatter.thumbnail && <Img
+              fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
+              alt={post.frontmatter.title}
+            />}
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Tags tags={post.frontmatter.tags}/>
         </article>
         <hr/>
         <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
+          <ul className="post-nav">
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
+                  <svg transform="scale(-1, 1)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                    <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
+                  </svg>
+                  <span className="post-nav-prev">{previous.frontmatter.title}</span>
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
+                  <span className="post-nav-next">{next.frontmatter.title}</span>
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                    <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
+                  </svg>
                 </Link>
               )}
             </li>
@@ -78,7 +83,15 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        tags
         description
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 720) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

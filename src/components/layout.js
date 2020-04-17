@@ -42,7 +42,7 @@ class Layout extends Component {
           </Link>
           <div className="nav-container">
             <ul className="header-nav">
-              <li><Link to={`/tags`}>Tags</Link></li>
+              <li id="header-nav-first"><Link to={`/tags`}>Tags</Link></li>
               <li><Link to={`/search`}>Search</Link></li>
               <li>{toggler}</li>
             </ul>

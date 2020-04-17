@@ -9,7 +9,13 @@ body {
     letter-spacing: -0.0125em;
 }
 ::selection {
-    background: var(--color-apple-teal);
+    background: var(--color-teal);
+}
+
+hr {
+    border: 0em;
+    height: 0.0625rem;
+    background-color: var(--color-gray-2);
 }
 
 /* Layout */
@@ -23,11 +29,18 @@ body {
 .header-container {
     display: flex;
     align-items: baseline;
-    margin: 0px 0.5em;
+    margin: 0px 0.5em;   
+}
+@media (max-width: 540px) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+    #header-nav-first {
+        margin-left: 0em;
+    }
 }
 
 .header-container a {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
 }
@@ -57,14 +70,16 @@ body {
     list-style: none;
     display: flex;
     justify-content: flex-start;
-    padding: 0px;
+    padding: 0em;
+    margin: 0.25rem 0em;
 }
 
 .header-link {
     list-style: none;
     display: flex;
     justify-content: flex-end;
-    padding: 0px;
+    padding: 0em;
+    margin: 0.25rem 0em;
 }
 
 .header-nav li {
@@ -89,7 +104,6 @@ body {
 }
 
 .footer-gatsby {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
 }
@@ -112,7 +126,6 @@ body {
     letter-spacing: -0.025em;
 }
 .post-card a {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
 }
@@ -164,17 +177,19 @@ body {
     font-family: inherit;
     color: inherit;
     background-color: transparent;
+    
 }
 .search-box:focus {
     outline: none;
+}
+.search-box::placeholder {
+    color: var(--color-gray-1);
 }
 
 .tag-archive-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 1em;
-    
 }
 
 .tag-archive-item {
@@ -186,10 +201,8 @@ body {
     
 }
 .tag-archive-link {
-    box-shadow: none;
     text-decoration: none;
     color: inherit;
-    
 }
 
 .pagenator {
@@ -217,7 +230,7 @@ body {
 .post-card-readmore {
     margin-top: 0.375rem;
     font-size: 0.875em;
-    color: var(--color-apple-blue);
+    color: var(--color-blue);
 }
 .post-card-readmore span::selection {
     background: transparent;
@@ -229,5 +242,44 @@ body {
     width: 0.5rem;
     height: 0.5rem;
     margin-left: 0.125rem;
-    fill: var(--color-apple-blue);
+    fill: var(--color-blue);
+}
+
+.post-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    font-size: 1.125em;
+}
+.post-nav ::selection {
+    background: transparent;
+}
+.post-nav a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: baseline;
+}
+.post-nav svg {
+    width: 0.8125rem;
+    height: 0.8125rem;
+    fill: var(--color-font);
+}
+.post-nav-prev {
+    margin-left: 0.125rem;
+}
+.post-nav-next {
+    margin-right: 0.125rem;
+}
+
+article .tag-container {
+    text-align: right;
+}
+
+article .tag-container a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.875em;
 }
