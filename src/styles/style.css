@@ -23,7 +23,15 @@ body {
 .header-container {
     display: flex;
     align-items: baseline;
-    margin: 0px 0.5em;
+    margin: 0px 0.5em;   
+}
+@media (max-width: 540px) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+    #header-nav-first {
+        margin-left: 0em;
+    }
 }
 
 .header-container a {
@@ -56,14 +64,16 @@ body {
     list-style: none;
     display: flex;
     justify-content: flex-start;
-    padding: 0px;
+    padding: 0em;
+    margin: 0.25rem 0em;
 }
 
 .header-link {
     list-style: none;
     display: flex;
     justify-content: flex-end;
-    padding: 0px;
+    padding: 0em;
+    margin: 0.25rem 0em;
 }
 
 .header-nav li {
