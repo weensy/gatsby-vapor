@@ -273,3 +273,13 @@ hr {
 .post-nav-next {
     margin-right: 0.125rem;
 }
+
+article .tag-container {
+    text-align: right;
+}
+
+article .tag-container a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.875em;
+}
