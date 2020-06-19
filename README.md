@@ -17,8 +17,9 @@ A custom, simple theme for Gatsby. Made for minimalist. Completely free and full
 
 ### Features of Vapor
 * Support Tag
+* Post Search
 * Toggle Dark themes
-* Search Post
+
 
 ---
 
