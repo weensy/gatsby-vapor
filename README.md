@@ -7,9 +7,6 @@
   Vapor
 </h1>
 
-
----
-
 A custom, simple theme for Gatsby. Made for minimalist. Completely free and fully responsive, released under the MIT license.
 
 **Demo: https://vapor.aesthetic.codes**
