@@ -1,24 +1,13 @@
 @import "vars.css";
+@import "normalize.css";
 
-body {
-    font-family: var(--font-sans-serif);
-    background-color: var(--color-bg);
-    color: var(--color-font);
-    caret-color: var(--color-font);
-    transition: color, background-color 0.5s ease 0s;
-    letter-spacing: -0.0125em;
-}
-::selection {
-    background: var(--color-teal);
-}
-
-hr {
+/* Layout */
+.contour {
     border: 0em;
     height: 0.0625rem;
     background-color: var(--color-gray-2);
 }
 
-/* Layout */
 .site-container {
     margin: auto;
     padding: auto;

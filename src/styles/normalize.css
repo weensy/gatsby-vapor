@@ -1,0 +1,19 @@
+body {
+    font-family: var(--font-sans-serif);
+    background-color: var(--color-bg);
+    color: var(--color-font);
+    caret-color: var(--color-font);
+    transition: color, background-color 0.5s ease 0s;
+    letter-spacing: -0.0125em;
+}
+::selection {
+    background: var(--color-teal);
+}
+p {
+    line-height: 1.75em;
+}
+hr {
+    border: 0em;
+    height: 0.0625rem;
+    background-color: var(--color-gray-4);
+}

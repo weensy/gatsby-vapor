@@ -20,7 +20,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <hr/>
+        <hr className="contour"/>
         <article>
           <header className="post-header">
             <h1>
@@ -37,7 +37,7 @@ class BlogPostTemplate extends React.Component {
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <Tags tags={post.frontmatter.tags}/>
         </article>
-        <hr/>
+        <hr className="contour"/>
         <nav>
           <ul className="post-nav">
             <li>
