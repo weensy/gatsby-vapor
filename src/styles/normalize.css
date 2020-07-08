@@ -15,7 +15,7 @@ p {
 hr {
     border: 0em;
     height: 0.0625rem;
-    background-color: var(--color-gray-4);
+    background-color: var(--color-gray-2);
 }
 h1 {
     font-size: 2.5rem;
@@ -40,4 +40,26 @@ h5 {
 h6 {
     font-size: 1.25rem;
     margin-bottom: 0em;
+}
+table {
+    width: 100%;
+    max-width: 44rem;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+thead {
+    border-bottom: 0.0625rem;
+    border-bottom-style: solid;
+    border-color: var(--color-gray-4);
+}
+tfoot {
+    border-top: 0.0625rem;
+    border-top-style: solid;
+    border-color: var(--color-gray-4);
+}
+th, td {
+    padding: 0.875rem;
 }
