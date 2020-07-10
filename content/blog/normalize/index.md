@@ -16,7 +16,8 @@ tags: [css]
 ---
 ###### Title6
 ---
-Paragraph start
+
+<h4 style="text-align:center">Table</h4>
 
 <table>
   <thead>
@@ -51,4 +52,17 @@ Paragraph start
   </tfoot>
 </table>
 
-Paragraph end
+<h4 style="text-align:center">List</h4>
+
+###### Ordered
+1. First
+2. Second
+3. Third
+
+###### Unordered
+- First
+- Second
+- Third
+
+
+

@@ -63,3 +63,11 @@ tfoot {
 th, td {
     padding: 0.875rem;
 }
+ol {
+    padding-inline-start: 2.25em;
+    margin-block-start: 1.25em;
+    margin-block-end: 1.25em;
+}
+li {
+    line-height: 2em;
+}
