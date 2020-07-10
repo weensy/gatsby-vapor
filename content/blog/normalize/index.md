@@ -16,6 +16,8 @@ tags: [css]
 ---
 ###### Title6
 ---
+This is *Italic*, **Bold**, ~~Strike~~,`Code`.
+
 
 <h4 style="text-align:center">Table</h4>
 
@@ -77,3 +79,4 @@ tags: [css]
 >Good men, the last wave by, crying how bright  
 >Their frail deeds might have danced in a green bay,  
 >Rage, rage against the dying of the light.
+
