@@ -83,3 +83,10 @@ blockquote {
     margin-left: 2.25em;
     margin-right: 2.25em;
 }
+code {
+    font-family: var(--font-mono);
+    background-color: black;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.25em;
+    padding: 0em 0.1875em;
+}

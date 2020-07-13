@@ -80,3 +80,10 @@ This is *Italic*, **Bold**, ~~Strike~~,`Code`.
 >Their frail deeds might have danced in a green bay,  
 >Rage, rage against the dying of the light.
 
+<h4 style="text-align:center">Code</h4>
+
+```shell
+git init
+npm install
+gatsby develop
+```
