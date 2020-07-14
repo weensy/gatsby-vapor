@@ -16,7 +16,13 @@ tags: [css]
 ---
 ###### Title6
 ---
-This is *Italic*, **Bold**, ~~Strike~~,`Code`.
+*This is Italic. Italic type is a cursive font based on a stylised form of calligraphic handwriting.*
+
+**This is Bold. A bold font weight makes letters of a text thicker than the surrounding text.**
+
+~~This is Strike. Strikethrough is a typographical presentation of words with a horizontal line through their center.~~
+
+`This is Code. In information theory and computer science, a code is usually considered as an algorithm that uniquely represents symbols from some source alphabet, by encoded strings, which may be in some other target alphabet.`
 
 
 <h4 style="text-align:center">Table</h4>
@@ -80,3 +86,10 @@ This is *Italic*, **Bold**, ~~Strike~~,`Code`.
 >Their frail deeds might have danced in a green bay,  
 >Rage, rage against the dying of the light.
 
+<h4 style="text-align:center">Code</h4>
+
+```shell
+git init
+npm install
+gatsby develop
+```
