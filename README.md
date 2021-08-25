@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
 </p>
 <h1 align="center">
@@ -9,9 +9,9 @@
 
 A custom, simple theme for Gatsby. Made for minimalist. Completely free and fully responsive, released under the MIT license.
 
-**Demo: https://gatsby-vapor.cxsmxs.com**
+**Demo: https://gatsby-vapor.weensy.co**
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/vaporwavy/gatsby-vapor)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/weensykim/gatsby-vapor)
 
 ---
 
@@ -35,7 +35,7 @@ _First time with Gatsby? Take a look on the [official and community-created star
 
     ```shell
     # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/vaporwavy/gatsby-vapor
+    gatsby new my-blog-starter https://github.com/weensykim/gatsby-vapor
     ```
 
 1.  **Start developing.**
