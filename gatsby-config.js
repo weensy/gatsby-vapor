@@ -3,9 +3,9 @@ const remark = require("remark");
 module.exports = {
   siteMetadata: {
     title: `Vapor`,
-    author: `Vaporwavy`,
+    author: `weensykim`,
     description: `A blog for minimalist`,
-    siteUrl: `https://vapor.aesthetic.codes/`,
+    siteUrl: `https://gatsby-vapor.weensy.co/`,
     social: {
       twitter: ``,
     },
