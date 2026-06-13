@@ -12,7 +12,7 @@ class Layout extends Component {
   }
 
   getStoredTheme = () => {
-    if (typeof window === "undefined" || !window.localStorage) {
+    if (typeof window === "undefined") {
       return "light"
     }
 
@@ -33,7 +33,7 @@ class Layout extends Component {
       document.body.classList.add(safeTheme)
     }
 
-    if (typeof window !== "undefined" && window.localStorage) {
+    if (typeof window !== "undefined") {
       try {
         window.localStorage.setItem("theme", safeTheme)
       } catch (error) {
