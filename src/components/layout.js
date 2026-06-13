@@ -16,7 +16,11 @@ class Layout extends Component {
       return "light"
     }
 
-    return window.localStorage.getItem("theme") || "light"
+    try {
+      return window.localStorage.getItem("theme") || "light"
+    } catch (error) {
+      return "light"
+    }
   }
 
   setTheme = theme => {
@@ -30,7 +34,11 @@ class Layout extends Component {
     }
 
     if (typeof window !== "undefined" && window.localStorage) {
-      window.localStorage.setItem("theme", safeTheme)
+      try {
+        window.localStorage.setItem("theme", safeTheme)
+      } catch (error) {
+        // Ignore storage errors in privacy-restricted contexts.
+      }
     }
   }
 
