@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { frontmatter: { date: DESC } }
           limit: 1000
         ) {
           edges {
@@ -71,18 +71,18 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     }
 
-    // Create tag pages.
-    tagSet.forEach(tag => {
-      createPage({
-        path: `/tags/${_.kebabCase(tag)}/`,
-        component: tagPage,
-        context: {
-          tag
-        }
-      });
-    });
-
   })
+
+  // Create tag pages.
+  tagSet.forEach(tag => {
+    createPage({
+      path: `/tags/${_.kebabCase(tag)}/`,
+      component: tagPage,
+      context: {
+        tag
+      }
+    });
+  });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

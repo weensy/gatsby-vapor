@@ -1,33 +1,61 @@
 import React, { Component } from "react";
 import { Link } from "gatsby"
-import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 class Layout extends Component {
+  state = {
+    theme: "light",
+  }
+
+  componentDidMount() {
+    const theme = this.getStoredTheme()
+    this.setTheme(theme)
+  }
+
+  getStoredTheme = () => {
+    if (typeof window === "undefined" || !window.localStorage) {
+      return "light"
+    }
+
+    return window.localStorage.getItem("theme") || "light"
+  }
+
+  setTheme = theme => {
+    const safeTheme = theme === "dark" ? "dark" : "light"
+
+    this.setState({ theme: safeTheme })
+
+    if (typeof document !== "undefined") {
+      document.body.classList.remove("light", "dark")
+      document.body.classList.add(safeTheme)
+    }
+
+    if (typeof window !== "undefined" && window.localStorage) {
+      window.localStorage.setItem("theme", safeTheme)
+    }
+  }
+
   render() {
     const { title, children} = this.props
+    const { theme } = this.state
     const toggler = (
       <div className="toggler">
-        <ThemeToggler>{({ theme, toggleTheme }) => (
-          <label className="tog">
-            <input
-              type="checkbox"
-              onChange={e =>
-                toggleTheme(e.target.checked ? "dark" : "light")
-              }
-              checked={theme === "dark"}
-              className="tog-checkbox"
-            />
-            {theme === "dark" ? (
-              <div className="tog-text">
-                Light
-              </div>
-            ) : (
-              <div className="tog-text">
-                Dark
-              </div>
-            )}
-          </label>
-        )}</ThemeToggler>
+        <label className="tog">
+          <input
+            type="checkbox"
+            onChange={e => this.setTheme(e.target.checked ? "dark" : "light")}
+            checked={theme === "dark"}
+            className="tog-checkbox"
+          />
+          {theme === "dark" ? (
+            <div className="tog-text">
+              Light
+            </div>
+          ) : (
+            <div className="tog-text">
+              Dark
+            </div>
+          )}
+        </label>
       </div>
     )
 

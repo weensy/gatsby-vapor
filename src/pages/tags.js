@@ -44,7 +44,7 @@ const indexQuery = graphql`
       }
     }
     allMarkdownRemark {
-      distinct(field: frontmatter___tags)
+      distinct(field: {frontmatter: {tags: SELECT}})
     }
   }
 `
@@ -53,7 +53,7 @@ export default props => (
   <StaticQuery
     query={indexQuery}
     render={data => (
-      <TagIndex props data={data} />
+      <TagIndex data={data} />
     )}
   />
 )

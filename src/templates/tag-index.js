@@ -49,7 +49,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(filter: { frontmatter: { tags: { in: [$tag] } } }, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(filter: { frontmatter: { tags: { in: [$tag] } } }, sort: { frontmatter: { date: DESC } }) {
       totalCount
       edges {
         node {
@@ -64,10 +64,7 @@ export const pageQuery = graphql`
             tags
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 670, maxHeight: 200, cropFocus: CENTER) {
-                  src
-                  originalName
-                }
+                gatsbyImageData(width: 670, height: 200, layout: CONSTRAINED, transformOptions: {cropFocus: CENTER})
               }
             }
           }

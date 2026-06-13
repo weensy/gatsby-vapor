@@ -20,7 +20,7 @@ export default class Search extends Component {
           <input className="search-box" placeholder="Search" type="text" value={this.state.query} onChange={this.search} />
         </div>
         {this.state.results.map(page => (
-          <div className="post-card">
+          <div className="post-card" key={page.slug}>
             <Tags tags={page.tags}/>
             <header>
                 <h1>

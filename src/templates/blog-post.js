@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,6 +13,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const image = getImage(post.frontmatter.thumbnail)
 
     return (
       <Layout title={siteTitle}>
@@ -29,8 +30,8 @@ class BlogPostTemplate extends React.Component {
             <p>
               {post.frontmatter.date}
             </p>
-            {post.frontmatter.thumbnail && <Img
-              fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
+            {image && <GatsbyImage
+              image={image}
               alt={post.frontmatter.title}
             />}
           </header>
@@ -43,7 +44,7 @@ class BlogPostTemplate extends React.Component {
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  <svg transform="scale(-1, 1)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                  <svg transform="scale(-1, 1)" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000" xmlSpace="preserve">
                     <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
                   </svg>
                   <span className="post-nav-prev">{previous.frontmatter.title}</span>
@@ -54,7 +55,7 @@ class BlogPostTemplate extends React.Component {
               {next && (
                 <Link to={next.fields.slug} rel="next">
                   <span className="post-nav-next">{next.frontmatter.title}</span>
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xmlSpace="preserve">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000" xmlSpace="preserve">
                     <g><path d="M767.9,499.9L291.6,10l-59.4,61.3l416.6,428.7L232.1,928.7l59.5,61.3L767.9,499.9z"/></g>
                   </svg>
                 </Link>
@@ -87,9 +88,7 @@ export const pageQuery = graphql`
         description
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 720) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(width: 720, layout: CONSTRAINED)
           }
         }
       }
