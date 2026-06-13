@@ -1,5 +1,3 @@
-const remark = require("remark");
-
 module.exports = {
   siteMetadata: {
     title: `Vapor`,
@@ -49,13 +47,58 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-feed`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug,
+                  custom_elements: [{ "content:encoded": node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Vapor RSS Feed",
+          },
+        ],
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -68,7 +111,6 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
@@ -80,11 +122,10 @@ module.exports = {
             tags: node => node.frontmatter.tags,
             description: node => node.frontmatter.description,
             slug: node => node.fields.slug,
-            body: node => String(remark().processSync(node.rawMarkdownBody)),
+            body: node => node.rawMarkdownBody,
             excerpt: node => {
-              const text = remark().processSync(node.rawMarkdownBody);
               const excerptLength = 139; // Hard coded excerpt length
-              return node.rawMarkdownBody && String(text).substring(0, excerptLength) + "...";
+              return node.rawMarkdownBody && node.rawMarkdownBody.substring(0, excerptLength) + "...";
             },
             date: node => {
               const months= [
@@ -108,6 +149,5 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-dark-mode',
   ],
 }
