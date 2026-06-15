@@ -9,7 +9,7 @@
 
 A custom, simple theme for Gatsby. Made for minimalist. Completely free and fully responsive, released under the MIT license.
 
-**Demo: https://gatsby-vapor.weensy.co**
+**Demo: https://gatsby-vapor.netlify.app**
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/weensykim/gatsby-vapor)
 
